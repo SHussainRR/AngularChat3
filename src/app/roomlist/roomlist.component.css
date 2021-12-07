@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/* 
+*{
+  font-family: "Montserrat",sans-serif;
+} */
+
+
+.example-container {
+  background-image: url('./roomWallpaper.jfif');
+  height: 900px;
+  padding: 16px;
+}
+.NameClass{
+  display: flex;
+  justify-content: space-between;
+  color: whitesmoke;
+}
+
+.matt-button{
+  border-radius: 12px; 
+  background-color: rgb(255, 255, 255,0.8);
+  padding: 24px;
+  color: black;
+  font-weight: 700;
+}
+
+.matt-button:hover{
+  border-radius: 18px;
+  background-color: rgb(255, 255, 255);
+
+}
+
+.heading{
+  color: whitesmoke;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.roomName{
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.heading:hover{
+  color: whitesmoke;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.roomDetails{
+  border-radius: 16px;
+  background-color: rgb(255, 255, 255,0.9); 
+}
+
+
+
+
+
+.example-table-container {
+  position: relative;
+  max-height: 400px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.button-row {
+  margin: 10px 0;
+  display: flex;
+}
+.add-button{
+  margin:  -4px 0px 20px 24px;
+}
+
+.example-loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-rate-limit-reached {
+  color: #980000;
+  max-width: 360px;
+  text-align: center;
+}
+
+/* Column Widths */
+.mat-column-number,
+.mat-column-state {
+  max-width: 64px;
+}
+
+.mat-column-created {
+  max-width: 124px;
+}

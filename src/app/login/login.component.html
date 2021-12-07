@@ -1,0 +1,91 @@
+<app-navigation-bar></app-navigation-bar>
+
+  <div class="container">
+
+    <!-- <button (click)="PageStatus=true">
+      Login
+    </button>
+
+    
+    <button (click)="PageStatus=false">
+      Signup
+    </button> -->
+
+    <form *ngIf="PageStatus==true"
+    class="login-form" [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
+      <div class="login-text">
+        <h2>LOGIN</h2>
+        <div style="font-size:16px">Use Your Nickname</div>
+      </div>  
+      
+        <div class="flex-input">          
+          <label class="mb16">Nickname:</label>
+          <input type="text" matInput placeholder="Enter your nickname" formControlName="nickname"
+                  [errorStateMatcher]="matcher">
+        </div>  
+          <mat-error>
+            <span *ngIf="!loginForm.get('nickname').valid && loginForm.get('nickname').touched">Please enter your nickname</span>
+            <span *ngIf="doesNotExist">NickName Does not Exist, please SignUp</span>
+          </mat-error>
+
+
+
+
+          <!-- <input type="text" placeholder="password"> -->
+
+
+        
+        <input [disabled]="!loginForm.valid" type="submit"  value="LOGIN" >
+        <div class="flex-container">
+          <!-- <div>
+            <input type="checkbox" name="" id="">
+          <span>Remeber me</span>
+          </div> -->
+          <div style="text-align: right;">
+            <span>Does not have a account ? Please<span class="pageStaus" (click)="PageStatus=false;doesNotExist= false"> Signup</span></span>
+            
+          </div>
+        </div>
+    </form>
+
+
+
+
+
+    <form *ngIf="PageStatus==false"
+    class="login-form" [formGroup]="loginForm" (ngSubmit)="onSignUpFormSubmit(loginForm.value)">
+      <div class="login-text">
+        <h2>SignUp</h2>
+        <div style="font-size:16px">Use Your Nickname</div>
+      </div>  
+      
+        <div class="flex-input">          
+          <label class="mb8">Nickname:</label>
+          <input type="text" matInput placeholder="Enter your nickname" formControlName="nickname"
+                  [errorStateMatcher]="matcher">
+        </div>  
+          <mat-error>
+            <span *ngIf="(!loginForm.get('nickname').valid && loginForm.get('nickname').touched ) && !alreadyExist">Please enter your nickname</span>
+
+            <span *ngIf="alreadyExist">NickName already Exist , Please Login</span>
+
+          </mat-error>
+        
+        <input [disabled]="!loginForm.valid" type="submit"  value="SignUp" >
+
+
+
+
+        <div class="flex-container">
+          <!-- <div>
+            <input type="checkbox" name="" id="">
+          <span>Remeber me</span>
+          </div> -->
+          <div style="text-align: right;">
+              <span>If you already have a Account ? Please<span class="pageStaus" (click)="PageStatus=true;alreadyExist= false"> Login</span></span>
+          </div>
+        </div>
+    </form>
+</div>
+
+

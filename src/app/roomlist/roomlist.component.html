@@ -1,0 +1,189 @@
+<div class="example-container" >
+  
+  <div class="NameClass">
+    <h3>
+      User Nickname :&nbsp;{{nickname}}
+    </h3>
+      <button mat-button class="matt-button" (click)="logout()" >Signout</button>
+  </div>
+ 
+  <h2 class="heading">Room List</h2>
+  <div class="example-loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner  *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+
+
+  <!-- <div class="button-row">
+    <span class="NameClass">Add New Group Room :
+      <button mat-flat-button color="primary" class="add-button" [routerLink]="['/addroom']"><mat-icon>add</mat-icon></button>  
+    </span>
+    
+  </div> -->
+
+  <div class="button-row">
+    <span class="NameClass">Add one to one Room :
+      <button mat-flat-button color="primary" class="add-button" [routerLink]="['/addone']"><mat-icon>add</mat-icon></button>  
+    </span>
+  </div>
+
+  <div class="button-row">
+    <span class="NameClass">Add Group :
+      <button mat-flat-button color="primary" class="add-button" (click)="openPopup()"><mat-icon>add</mat-icon></button>  
+    </span>
+  </div>
+
+
+
+<!-- <button style="margin: 50px; padding: 10px" type="button" class="btn btn-primary" (click)="openPopup()">Show Data</button> -->
+<div class="modal" style="background-color: rgb(255, 255, 255,0.9); margin: 8px 8px 8px 0px; padding: 8px; max-width: 92%"
+  tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+        
+
+        <tr *ngIf="allUsers.length > 0">
+          <th>All Users</th>
+        </tr>
+        <tr *ngFor="let user of allUsers">
+          <td> 
+          <span>{{user.nickname}}</span>
+          </td>
+        </tr>
+
+  
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" 
+                (click)="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  <div class="row" style="display:flex;">
+
+    <div class="col-3"  style="color: black; min-width: 20%; background-color: rgb(255, 255, 255,0.7); margin-right: 24px; padding: 16px;">
+       
+      <div *ngIf= "offlineUsers.length == 0 && onlineUsers.length == 0"> 
+         No Users !! 
+      </div>
+
+      <table style="width:100%" >
+        <!-- Online Users -->
+        <tr *ngIf="onlineUsers.length > 0">
+          <th>Online Users</th>
+        </tr>
+        <tr *ngFor="let user of onlineUsers">
+          <td>
+            <mat-icon style="color:green;">perm_identity</mat-icon> 
+          <span>{{user.nickname}}</span>
+          </td>
+        </tr>
+        <!-- Offline Users  -->
+        <tr>
+          <th *ngIf= "offlineUsers.length >0">Offline Users</th>
+        </tr>
+        <tr *ngFor="let user of offlineUsers">
+          <td>
+            <mat-icon style="color:red">perm_identity</mat-icon> 
+          <span>{{user.nickname}}</span>
+          </td>
+        </tr>
+       
+      </table>
+    </div>
+
+    <div class="col-9" style="min-width: 70%;">
+      <div class="roomDetails" style="float: left; min-width: 100%;" >
+        <table mat-table [dataSource]="rooms" class="example-table"
+               matSort matSortActive="roomname" matSortDisableClear matSortDirection="asc">
+               
+          <!-- Room Name Column -->
+          <ng-container matColumnDef="roomname">
+            <th mat-header-cell [routerLink]="['/addroom']" *matHeaderCellDef class="roomName">Room Name</th>
+            <td mat-cell class="roomName" *matCellDef="let row">{{row.roomname}}</td>
+          </ng-container>
+          
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="enterChatRoom(row.roomname)"></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="col-9" style="min-width: 63%; margin-top: 16px;">
+    <div class="roomDetails" style="float: left; min-width: 93%;" >
+      <table mat-table [dataSource]="OnetoOne" class="example-table"
+             matSort matSortActive="roomname" matSortDisableClear matSortDirection="asc">
+             
+        <!-- Room Name Column -->
+        <ng-container matColumnDef="roomname">
+
+          <th mat-header-cell *matHeaderCellDef class="roomName"> Your One to One Rooms</th>
+          <td mat-cell class="roomName" *matCellDef="let row">{{row.roomname}} ( Users: {{row.UserOne}} & {{row.UserTwo}} )</td>
+          
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="enterOnetoOneChatRoom(row.roomname)"></tr>
+      </table>
+    </div>
+  </div>
+
+  
+
+</div>

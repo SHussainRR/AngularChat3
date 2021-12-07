@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+
+.container{
+  /* background-color: gray; */
+  background-image: url('./wallp.jpg');
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  height: 900px;
+  align-items: center;
+  margin: 0px !important;
+
+}
+/* .example-full-width:nth-last-child(0) {
+  margin-bottom: 10px;
+} */
+
+.login-text{
+  font-family: "Montserrat",sans-serif;
+  text-align: center; 
+  margin-bottom: 24px;
+}
+
+.login-form{
+  background-color: rgb(255,255,255,0.7);
+  padding: 10px;
+  width: 400px;
+  border-radius: 8px;
+}
+
+input[type="text"]{
+  padding: 6px;
+  font-size: 18px;
+  border-radius: 8px;
+}
+
+.flex-input{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 8px;
+}
+
+label { 
+  flex-basis: 120px;
+  margin-top: 8px;
+  font-size: 16px;
+}
+
+.pageStaus{
+  color: #6217A8;
+  font-weight:600;
+  cursor: pointer;
+  margin-bottom: 0px !important;
+}
+
+input[type= "submit"]{
+  width: 100%;
+  font-size: 20px;
+  padding: 10px;
+  background-color: blueviolet;
+  color: white;
+  border: none;
+  margin: 30px 0;
+  border-radius: 8px;
+
+}
+
+input[ type = "submit"]:hover{
+  cursor: pointer;
+  background-color: rgb(98,23,168);
+}
+
+input[ type = "checkbox"]{
+ background-color: blueviolet;
+}
+
+.flex-container{
+  display: flex;
+}
+
+.flex-container div{
+  flex: 1;
+}
+
+.flex-container a{
+  text-decoration: none;
+  color: blueviolet;
+}
+
+.flex-container a:hover{
+  text-decoration: underline;
+
+}
+
+.mb8{
+  margin-bottom: 16px;
+}
+
+
+@media all and (max-width:480px) {
+
+  .flex-input{
+    flex-direction: column;
+  }
+  label{
+    flex-basis: 0;
+  }
+  .mb16{
+    margin-bottom: 16px;
+  }
+}

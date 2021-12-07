@@ -1,0 +1,49 @@
+.container{
+  background-image: url('..\roomlist\roomWallpaper.jfif');
+  
+  height: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Structure */
+.example-container {
+  
+  padding: 5px;
+}
+
+.createNewRoomForm {
+  background-color: rgb(255,255,255,0.7);
+  padding: 16px;
+  border-radius: 8px;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-full-width:nth-last-child(0) {
+  margin-bottom: 10px;
+}
+
+.button-row {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.mat-flat-button {
+  margin: 5px;
+}
+
+.ml{
+  margin-left: 32px;
+}
+
+.innerPadd{
+  padding: 8px 16px;
+}
